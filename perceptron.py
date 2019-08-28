@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-
 # Perceptron Algorithm to find a good weight w, where t is the number of passes
 def percept(t):
     print("Performing perceptron algorithm... ")
@@ -22,9 +21,9 @@ def percept(t):
                 y = -1
             x = np.array(row)
             product = y * np.dot(w, x)
-            # print(product)
-            print(len(w))
-            print(len(x))
+            if product <= 0:
+                w = np.add(w, y * x)
+    return w
 
 # Given a kernal function,
 
