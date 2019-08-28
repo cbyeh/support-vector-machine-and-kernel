@@ -8,7 +8,6 @@ def percept(p):
     train = pd.read_csv('pa3train.txt', sep = r'\s+', header = None)
     labels = train.iloc[:, -1] # Get labels as a series
     train = train.drop(train.columns[-1], axis = 1) # Drop labels from training data
-    train[len(train.columns)] = 1 # Extra dimension for hyperplane calculation
     # Initialize weight to a zero vector
     w = np.zeros(len(train.columns), dtype = int)
     # Do p passes of building the perceptron
@@ -42,10 +41,12 @@ def predict(w, point):
 # Find training, validation, or test error
 def get_error(w, filename):
     points = pd.read_csv(filename, sep = r'\s+', header = None)
+    labels = points.iloc[:, -1] # Get labels as a series
+    points = points.drop(points.columns[-1], axis = 1) # Drop labels column from points
     mistakes = 0
     total_points = 0
-    for _, row in points.iterrows():
-        if row.iloc[-1] != predict(w, row):
+    for index, row in points.iterrows():
+        if labels[index] != predict(w, row):
             mistakes += 1
         total_points += 1
     return float(mistakes) / total_points
