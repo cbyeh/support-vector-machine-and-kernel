@@ -19,3 +19,5 @@ Easiest way to get numpy is with the command `pip3 install numpy`, and likewise 
 Make more general for other datasets.
 
 Use other kernels.
+
+Make code more pythonic.
