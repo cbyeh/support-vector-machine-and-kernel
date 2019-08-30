@@ -3,7 +3,7 @@ import pandas as pd
 import copy
 import sys
 
-# Perceptron Algorithm to find a good linear weight vector w, where t is the number of passes
+# Perceptron Algorithm to find a good linear weight vector w, where p is the number of passes
 def percept(p):
     print("Performing perceptron algorithm... ")
     # Read training data, get labels from last column
